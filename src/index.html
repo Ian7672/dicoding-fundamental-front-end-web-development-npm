@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>Notes App</h1>
+            <p>Organize your thoughts beautifully</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Create New Note</h2>
+                <input-notes></input-notes>
+            </div>
+
+            <div class="notes-grid">
+                <div class="notes-section">
+                    <h2 class="active">Active Notes</h2>
+                    <div class="notes-container" id="activeNotes">
+                        <div class="empty-state">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <h3>No active notes</h3>
+                            <p>Create your first note to get started</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-section">
+                    <h2 class="archived">Archived Notes</h2>
+                    <div class="notes-container" id="archivedNotes">
+                        <div class="empty-state">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8l6 6m0-6l-6 6"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3z"></path>
+                            </svg>
+                            <h3>No archived notes</h3>
+                            <p>Archived notes will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-indicator" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+</body>
+</html>

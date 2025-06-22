@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="data:," />
+    <script defer="defer" src="/main.bundle.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Notes App</h1>
+      <input-notes></input-notes>
+      <div class="notes-container">
+        <h2>Active Notes</h2>
+        <div id="activeNotes"></div>
+        <h2>Archived Notes</h2>
+        <div id="archivedNotes"></div>
+      </div>
+    </div>
+    <div id="loading-indicator" class="loading-overlay">
+      <div class="spinner"></div>
+    </div>
+  </body>
+</html>

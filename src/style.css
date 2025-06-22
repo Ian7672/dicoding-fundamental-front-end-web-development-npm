@@ -1,0 +1,676 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.header h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  padding: 40px;
+}
+
+.input-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.input-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-section h2::before {
+  content: "✨";
+  font-size: 1.2rem;
+}
+
+/* Enhanced CSS for input-notes web component */
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Input and textarea base styles */
+.note-form input,
+.note-form textarea {
+  padding: 18px 24px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  background: linear-gradient(135deg, #fafafa 0%, #f8fafc 100%);
+  outline: none;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Enhanced focus states */
+.note-form input:focus,
+.note-form textarea:focus {
+  border-color: #4f46e5;
+  background: linear-gradient(135deg, #ffffff 0%, #fefeff 100%);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08),
+    0 8px 25px rgba(79, 70, 229, 0.15), 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Placeholder styling */
+.note-form input::placeholder,
+.note-form textarea::placeholder {
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.note-form input:focus::placeholder,
+.note-form textarea:focus::placeholder {
+  color: #6b7280;
+}
+
+/* Title input specific styling */
+.note-form input[type="text"] {
+  font-weight: 600;
+  font-size: 18px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+/* Textarea specific styling */
+.note-form textarea {
+  min-height: 140px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Character counter */
+.textarea-wrapper {
+  position: relative;
+}
+
+.char-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.note-form textarea:focus + .char-counter {
+  color: #4f46e5;
+  background: rgba(79, 70, 229, 0.1);
+}
+
+/* Enhanced button styling */
+.note-form button {
+  padding: 18px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* Animated gradient overlay */
+.note-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects */
+.note-form button:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #6d28d9 50%, #0891b2 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
+}
+
+.note-form button:hover::before {
+  left: 100%;
+}
+
+/* Active state */
+.note-form button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+}
+
+/* Loading state */
+.note-form button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.note-form button:disabled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: buttonSpin 1s linear infinite;
+}
+
+/* Form validation styles */
+.note-form input.error,
+.note-form textarea.error {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  animation: shake 0.5s ease-in-out;
+}
+
+.note-form input.error:focus,
+.note-form textarea.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1),
+    0 8px 25px rgba(239, 68, 68, 0.15);
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: -16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.error-message::before {
+  content: "⚠️";
+  font-size: 12px;
+}
+
+/* Success notification */
+.success-message {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.success-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.success-message::before {
+  content: "✅";
+}
+
+/* Notes display styles */
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.notes-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.notes-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.notes-section h2.active::before {
+  content: "📝";
+}
+
+.notes-section h2.archived::before {
+  content: "📦";
+}
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  min-height: 200px;
+}
+
+.note-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.note-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4);
+}
+
+.note-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.note-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* Base Button Styles */
+.note-card button {
+  position: relative;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  margin: 4px;
+  min-width: 80px;
+  text-transform: capitalize;
+}
+
+/* Button Hover Effects */
+.note-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Active Effects */
+.note-card button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Glass Background Effect */
+.note-card button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 7px;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* Archive Button */
+.archive-btn {
+  background: rgba(255, 193, 7, 0.8);
+  color: #2c3e50;
+  border: 1px solid rgba(255, 213, 79, 0.5);
+}
+
+.archive-btn:hover {
+  background: rgba(255, 193, 7, 0.9);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.archive-btn::after {
+  content: "📌";
+  margin-left: 6px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: rgba(220, 53, 69, 0.8);
+  color: white;
+  border: 1px solid rgba(220, 53, 69, 0.5);
+}
+
+.delete-btn:hover {
+  background: rgba(220, 53, 69, 0.9);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.delete-btn::after {
+  content: "🗑️";
+  margin-left: 6px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+/* Ripple Effect */
+.note-card button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.note-card button:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9ca3af;
+  grid-column: 1 / -1;
+}
+
+.empty-state svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+.empty-state p {
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes buttonSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .notes-container {
+    grid-template-columns: 1fr;
+  }
+
+  .note-actions {
+    flex-direction: column;
+  }
+
+  .note-form input,
+  .note-form textarea {
+    padding: 16px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .note-form button {
+    padding: 16px 24px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .note-form textarea {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .note-form {
+    gap: 20px;
+  }
+
+  .note-form input,
+  .note-form textarea {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .note-form button {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
