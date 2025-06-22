@@ -111,9 +111,15 @@ This project meets all requirements for Dicoding's Fundamental Front-End Web Dev
      - Active Notes
      - Archived Notes
 
+---
+
+## 📲 Live Demo  
+[Link Demo App](https://github.com/user-attachments/assets/5a0aafd7-a9b4-4fce-9ea0-ca3860cb84f0)
+
+---
+
 ## 🔗 Link Penting
-🔗 [Kelas Dicoding](https://www.dicoding.com/academies/163)  
-🔗 [Demo Aplikasi](https://your-demo-link.com)  
+🔗 [Kelas Dicoding](https://www.dicoding.com/academies/163)   
 🔗 [Repository GitHub](https://github.com/yourusername/dicoding-fundamental-front-end-web-development-npm)
 
 Dikembangkan dengan ❤️ oleh Ian7672 untuk [Dicoding Indonesia](https://www.dicoding.com)
